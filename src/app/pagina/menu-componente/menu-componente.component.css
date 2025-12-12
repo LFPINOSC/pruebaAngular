@@ -1,0 +1,42 @@
+/* --- Estilos generales para el nav --- */
+nav {
+    background-color: #333; /* Fondo oscuro para la barra de navegación */
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+}
+
+/* --- Estilo para la lista desordenada (<li>) dentro de nav --- */
+/* (Aunque en tu HTML es un <li> directo sin <ul>, lo estilaremos como contenedor de los enlaces) */
+nav li {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Utiliza Flexbox para alinear los enlaces horizontalmente */
+    justify-content: flex-start; /* Alinea los ítems al inicio */
+}
+
+/* --- Estilo para los enlaces (<a>) --- */
+nav a {
+    text-decoration: none; /* Quita el subrayado predeterminado */
+    color: #f1f1f1; /* Color de texto claro */
+    padding: 15px 20px; /* Espaciado interno para hacer los botones más grandes */
+    display: block; /* Hace que el enlace ocupe todo el espacio del padding */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para los efectos hover/active */
+    font-family: Arial, sans-serif; /* Fuente legible */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* --- Estilo al pasar el ratón (Hover) --- */
+nav a:hover {
+    background-color: #575757; /* Fondo un poco más claro al pasar el ratón */
+    color: #ffffff;
+}
+
+/* --- Estilo para el enlace activo (routerLinkActive="active") --- */
+nav a.active {
+    background-color: #007bff; /* Fondo de color primario para el ítem activo */
+    color: #ffffff; /* Texto blanco para el ítem activo */
+    pointer-events: none; /* Opcional: Deshabilita el clic en el enlace activo */
+}
