@@ -1,1 +1,24 @@
-<p>dashboard-componente works!</p>
+<div class="dashboard">
+
+  <header class="dashboard-header">
+    <nav class="dashboard-nav">
+      <a routerLink="/dashboard/home" routerLinkActive="active">Empresa</a>
+      <a routerLink="/dashboard/empresa" routerLinkActive="active">Noticias</a>
+      <a routerLink="/dashboard/usuarios" routerLinkActive="active">Usuarios</a>
+    </nav>
+
+    <button class="logout-btn" (click)="logout()">
+      Cerrar sesión
+    </button>
+  </header>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+
+  <footer class="dashboard-footer">
+    <app-pie-pagina-componente></app-pie-pagina-componente>
+  </footer>
+
+</div>
