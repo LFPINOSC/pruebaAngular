@@ -9,6 +9,8 @@ export interface Empresa{
     slogan:string;
     urlLogo:string;
     sitioWeb:string;
+    mision:string;
+    vision:string;
     tipoEmpresa:string;
     estadoActivo:boolean;
     fechaCreacion:Date;
