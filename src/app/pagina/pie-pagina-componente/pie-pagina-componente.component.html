@@ -1,4 +1,17 @@
-<h1>Luis Pinos</h1>
-<p>2025</p>
+<div class="empresa-container">
+  <img [src]="empresa?.urlLogo" alt="Logo Empresa" class="logo-empresa">
 
-<p>UCACUE</p>
+  <h1 class="email-titulo">
+    {{empresa?.correo}}
+  </h1>
+
+  <p class="info-texto">
+    {{empresa?.direccion}}
+  </p>
+
+  <p class="info-texto">
+    <a [href]="empresa?.sitioWeb" target="_blank">{{empresa?.sitioWeb}}</a>
+  </p>
+
+  <p class="tag-ucacue">UCACUE</p>
+</div>
