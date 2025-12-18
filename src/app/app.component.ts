@@ -6,6 +6,8 @@ import { filter } from 'rxjs';
 import { Empresa } from './Entidades/Empresa';
 import { ServicioEmpresaService } from './servicio/servicio-empresa.service';
 import { error } from 'console';
+import { Noticia } from './Entidades/Noticia';
+import { ServicioNoticiasService } from './servicio/servicio-noticias.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,12 @@ import { error } from 'console';
 export class AppComponent implements OnInit {
   esDashboard = false;
   empresaActual!: Empresa;
-  constructor(private router: Router, private empresaSercicio:ServicioEmpresaService) {
+  noticaActual!: Noticia[];
+  constructor(
+    private router: Router, 
+    private empresaSercicio:ServicioEmpresaService,
+    private noticiaSercio:ServicioNoticiasService
+  ){
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
@@ -25,8 +32,18 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
       this.cargarEmpresa(1);
+      this.cargarNoticias();
   }
-  cargarEmpresa(id:number){
+  cargarNoticias(){
+      this.noticiaSercio.listar().subscribe({
+          next:(noticias) => {
+            this.noticaActual=noticias;
+            localStorage.setItem('noticias',JSON.stringify(noticias));
+          },
+          error: error => console.error(error)
+      });
+  }
+   cargarEmpresa(id:number){
       this.empresaSercicio.obtener(id).subscribe({
           next:(empresa) => {
             this.empresaActual=empresa;

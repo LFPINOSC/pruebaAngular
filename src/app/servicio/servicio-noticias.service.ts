@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicioNoticiasService {
-  private apiUrl=`${enverinmont.apiUrl1}/noticias`
+  private apiUrl=`${enverinmont.apiUrl}/noticias`
   constructor(private http:HttpClient) { }
    listar(): Observable<Noticia[]> {
       return this.http.get<Noticia[]>(this.apiUrl);

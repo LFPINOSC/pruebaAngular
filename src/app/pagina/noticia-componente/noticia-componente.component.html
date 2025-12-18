@@ -1,1 +1,23 @@
-<p>noticia-componente works!</p>
+<div class="noticias-container">
+  <div *ngFor="let noticia of paginadoNoticias" class="noticia-card">
+    <h2>{{ noticia.titulo }}</h2>
+    <p><strong>Resumen:</strong> {{ noticia.resumen }}</p>
+    <p>{{ noticia.contenido }}</p>
+    <p><strong>Autor:</strong> {{ noticia.autor.nombre }} {{ noticia.autor.apellido }}</p>
+    <p><strong>Categoria:</strong> {{ noticia.categoria.nombre }}</p>
+
+    <div class="imagenes">
+      <div *ngFor="let img of noticia.imagennoticia">
+        <img [src]="img.url" [alt]="img.textoAlternativo || img.descripcion" width="150">
+        <p>{{ img.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Paginador -->
+<div class="paginador">
+  <button *ngFor="let p of paginasArray()" (click)="cargarPagina(p)" [disabled]="p === paginaActual">
+    {{ p }}
+  </button>
+</div>

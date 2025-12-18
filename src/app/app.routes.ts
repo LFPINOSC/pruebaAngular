@@ -7,13 +7,14 @@ import { AuthGuard } from './auth.guard';
 import { EmpresaComponenteComponent } from './Dashboard/empresa-componente/empresa-componente.component';
 import { PiePaginaComponenteComponent } from './Dashboard/pie-pagina-componente/pie-pagina-componente.component';
 import { PaginaPrincipalComponenteComponent } from './pagina/pagina-principal-componente/pagina-principal-componente.component';
+import { NoticiasComponenteComponent } from './pagina/noticia-componente/noticia-componente.component';
 export const routes: Routes = [
   {
     path: '',
     component: PaginaPrincipalComponenteComponent,
     children: [
       { path: 'inicio', component: InicioComponenteComponent },
-      { path: 'noticias', component: NoticiaComponenteComponent },
+      { path: 'noticias', component: NoticiasComponenteComponent },
       { path: 'login', component: LoginComponenteComponent },
       { path: '', redirectTo: 'inicio', pathMatch: 'full' }
     ]
