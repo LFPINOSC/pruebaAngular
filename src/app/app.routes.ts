@@ -31,6 +31,6 @@ export const routes: Routes = [
         { path: 'usuarios', component: PiePaginaComponenteComponent }
     ]
   },
-  { path: '**', redirectTo: 'inicio' }
+
 ];
 

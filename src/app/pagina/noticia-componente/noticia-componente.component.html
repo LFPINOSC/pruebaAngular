@@ -1,23 +1,51 @@
-<div class="noticias-container">
-  <div *ngFor="let noticia of paginadoNoticias" class="noticia-card">
-    <h2>{{ noticia.titulo }}</h2>
-    <p><strong>Resumen:</strong> {{ noticia.resumen }}</p>
-    <p>{{ noticia.contenido }}</p>
-    <p><strong>Autor:</strong> {{ noticia.autor.nombre }} {{ noticia.autor.apellido }}</p>
-    <p><strong>Categoria:</strong> {{ noticia.categoria.nombre }}</p>
+<div class="container my-5">
+  <h1 class="text-center mb-5 fw-bold">Últimas Noticias</h1>
 
-    <div class="imagenes">
-      <div *ngFor="let img of noticia.imagennoticia">
-        <img [src]="img.url" [alt]="img.textoAlternativo || img.descripcion" width="150">
-        <p>{{ img.descripcion }}</p>
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let noticia of paginadoNoticias">
+      <div class="card h-100 shadow-sm border-0">
+        
+        <div class="position-absolute top-0 end-0 m-3">
+          <span class="badge bg-primary rounded-pill">{{ noticia.categoria.nombre }}</span>
+        </div>
+
+        <div class="card-body mt-3">
+          <h2 class="h5 card-title fw-bold text-dark">{{ noticia.titulo }}</h2>
+          <p class="card-text text-muted small"><strong>Resumen:</strong> {{ noticia.resumen }}</p>
+          <p class="card-text text-secondary">{{ noticia.contenido | slice:0:150 }}...</p>
+        </div>
+
+        <div class="px-3">
+          <div class="row g-2">
+            <div class="col-4" *ngFor="let img of noticia.imagennoticia">
+              <img [src]="img.url" 
+                   [alt]="img.textoAlternativo" 
+                   class="img-fluid rounded shadow-sm mb-1"
+                   style="height: 60px; width: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer bg-transparent border-0 pb-3">
+          <hr class="text-muted opacity-25">
+          <div class="d-flex align-items-center">
+            <div class="ms-2">
+              <small class="text-muted d-block">Publicado por:</small>
+              <small class="fw-bold text-primary">{{ noticia.autor.nombre }} {{ noticia.autor.apellido }}</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Paginador -->
-<div class="paginador">
-  <button *ngFor="let p of paginasArray()" (click)="cargarPagina(p)" [disabled]="p === paginaActual">
-    {{ p }}
-  </button>
+  <nav class="mt-5 d-flex justify-content-center">
+    <ul class="pagination shadow-sm">
+      <li class="page-item" *ngFor="let p of paginasArray()" [class.active]="p === paginaActual">
+        <button class="page-link" (click)="cargarPagina(p)" [disabled]="p === paginaActual">
+          {{ p }}
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>

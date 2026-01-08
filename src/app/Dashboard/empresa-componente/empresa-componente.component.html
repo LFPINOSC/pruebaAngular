@@ -1,1 +1,115 @@
-<p>empresa-componente works!</p>
+<div class="container mt-4">
+
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Editar Empresa</h5>
+    </div>
+
+    <div class="card-body">
+
+      <!-- LOADING -->
+      <div *ngIf="cargando" class="text-center">
+        <div class="spinner-border text-primary"></div>
+        <p class="mt-2">Cargando empresa...</p>
+      </div>
+
+      <!-- FORM -->
+      <form *ngIf="!cargando" (ngSubmit)="guardarCambios()">
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Nombre</label>
+            <input class="form-control"
+                   [(ngModel)]="empresa.nombre"
+                   name="nombre"
+                   required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Tipo Empresa</label>
+            <input class="form-control"
+                   [(ngModel)]="empresa.tipoEmpresa"
+                   name="tipoEmpresa">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Dirección</label>
+          <input class="form-control"
+                 [(ngModel)]="empresa.direccion"
+                 name="direccion">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Teléfono</label>
+            <input class="form-control"
+                   [(ngModel)]="empresa.telefono"
+                   name="telefono">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Correo</label>
+            <input class="form-control"
+                   [(ngModel)]="empresa.correo"
+                   name="correo"
+                   type="email">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Slogan</label>
+          <input class="form-control"
+                 [(ngModel)]="empresa.slogan"
+                 name="slogan">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Sitio Web</label>
+          <input class="form-control"
+                 [(ngModel)]="empresa.sitioWeb"
+                 name="sitioWeb">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Misión</label>
+            <textarea class="form-control"
+                      rows="3"
+                      [(ngModel)]="empresa.mision"
+                      name="mision"></textarea>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Visión</label>
+            <textarea class="form-control"
+                      rows="3"
+                      [(ngModel)]="empresa.vision"
+                      name="vision"></textarea>
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input"
+                 type="checkbox"
+                 [(ngModel)]="empresa.estadoActivo"
+                 name="estadoActivo">
+          <label class="form-check-label">
+            Empresa Activa
+          </label>
+        </div>
+
+        <div class="text-end">
+          <button class="btn btn-secondary me-2" type="button" (click)="cancelar()">
+            Cancelar
+          </button>
+          <button class="btn btn-success" type="submit">
+            Guardar Cambios
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

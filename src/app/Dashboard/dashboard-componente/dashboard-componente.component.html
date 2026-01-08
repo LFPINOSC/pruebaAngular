@@ -1,24 +1,49 @@
-<div class="dashboard">
+<div class="d-flex flex-column min-vh-100 bg-light">
+  
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold px-3" routerLink="/dashboard/home">
+        <i class="bi bi-speedometer2 me-2"></i> Panel Admin
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navDashboard">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <header class="dashboard-header">
-    <nav class="dashboard-nav">
-      <a routerLink="/dashboard/home" routerLinkActive="active">Empresa</a>
-      <a routerLink="/dashboard/empresa" routerLinkActive="active">Noticias</a>
-      <a routerLink="/dashboard/usuarios" routerLinkActive="active">Usuarios</a>
-    </nav>
+      <div class="collapse navbar-collapse" id="navDashboard">
+        <nav class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link px-3" routerLink="/dashboard/home" routerLinkActive="active bg-secondary rounded text-white">
+            <i class="bi bi-building me-1"></i> Empresa
+          </a>
+          <a class="nav-link px-3" routerLink="/dashboard/empresa" routerLinkActive="active bg-secondary rounded text-white">
+            <i class="bi bi-newspaper me-1"></i> Noticias
+          </a>
+          <a class="nav-link px-3" routerLink="/dashboard/usuarios" routerLinkActive="active bg-secondary rounded text-white">
+            <i class="bi bi-people me-1"></i> Usuarios
+          </a>
+        </nav>
 
-    <button class="logout-btn" (click)="logout()">
-      Cerrar sesión
-    </button>
+        <div class="d-flex align-items-center px-3">
+          <button class="btn btn-outline-danger btn-sm rounded-pill" (click)="logout()">
+            <i class="bi bi-box-arrow-right me-1"></i> Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main class="main-content">
-    <router-outlet></router-outlet>
+  <main class="container-fluid flex-grow-1 p-4">
+    <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+      <div class="card-body p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </main>
 
-
-  <footer class="dashboard-footer">
-    <app-pie-pagina-componente></app-pie-pagina-componente>
+  <footer class="bg-white border-top py-3">
+    <div class="container-fluid">
+      <app-pie-pagina-componente></app-pie-pagina-componente>
+    </div>
   </footer>
 
 </div>
