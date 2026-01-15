@@ -1,5 +1,5 @@
 export const enverinmont = {
     producion:false,
-    apiUrl:'http://localhost:9090/api',
-    apiUrl1:'http://localhost:9090'
+    apiUrl:'https://webpagina-b9l2.onrender.com/api',
+    apiUrl1:'https://webpagina-b9l2.onrender.com'
 };
